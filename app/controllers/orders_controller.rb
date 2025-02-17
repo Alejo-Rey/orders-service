@@ -12,7 +12,6 @@ class OrdersController < ApplicationController
     order = Order.new(user_id: @current_user_id,
                       status: "created",
                       order_items_attributes: order_items_params)
-
     if verify_stock(order.order_items)
       if order.save
         render json: order, include: :order_items, status: :created
@@ -34,8 +33,8 @@ class OrdersController < ApplicationController
   end
 
   def check_product_stock(product_id)
-    response = HTTParty.get("http://inventory-service:3001/products/#{product_id}")
-    if response.code == 200
+    response = Faraday.get("http://inventory-service:3001/products/#{product_id}")
+    if response.status == 200
       { available_stock: response.parsed_response["quantity"] }
     else
       { available_stock: 0 }
