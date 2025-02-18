@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
 
 
   def index
-    orders = Order.where(user_id: @current_user_id)
+    orders = Order.where(user_id: @current_user["id"])
 
     render json: {
       total: orders.size,
@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    service = OrdersClientService.new(@current_user_id, order_items_params).call
+    service = OrdersClientService.new(@current_user, order_items_params).call
 
     if service[:success]
       render json: service[:order], include: :order_items, status: :created

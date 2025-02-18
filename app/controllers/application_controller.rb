@@ -9,7 +9,8 @@ class ApplicationController < ActionController::API
 
       if response.status == 200
         data = JSON.parse(response.body)
-        @current_user_id = data["user_id"]
+
+        @current_user = data.dig("user")
       else
         render json: { error: "Unauthorized", response: response }, status: :unauthorized
       end
