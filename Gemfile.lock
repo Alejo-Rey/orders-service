@@ -327,6 +327,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   brakeman
+  byebug (~> 11.1, >= 11.1.3)
   debug
   faraday (~> 2.12, >= 2.12.2)
   kamal
