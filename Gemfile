@@ -32,7 +32,7 @@ gem "thruster", require: false
 gem "faraday", "~> 2.12", ">= 2.12.2"
 
 # https://rubygems.org/gems/bunny/versions/2.23.0
-gem "bunny", "~> 2.23"
+gem "bunny", "~> 2.24"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
