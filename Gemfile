@@ -29,7 +29,7 @@ gem "kamal", require: false
 # Add HTTP asset caching/compression and X-Sendfile acceleration to Puma [https://github.com/basecamp/thruster/]
 gem "thruster", require: false
 
-gem "faraday", "~> 2.12", ">= 2.12.2"
+gem "faraday", "~> 2.13"
 
 # https://rubygems.org/gems/bunny/versions/2.23.0
 gem "bunny", "~> 2.23"
